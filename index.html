@@ -111,6 +111,9 @@ input[type=range]{width:100%;accent-color:#d8ad6b;margin:10px 0 2px;height:28px}
 #history{display:block;width:100%;height:64px;background:var(--panel-deep);margin-top:6px}
 .check{display:flex;gap:9px;align-items:center;font-size:.8rem;margin:14px 0 0;color:#dccbd6}
 .check input{width:18px;height:18px;accent-color:#d8ad6b}
+.why p{font-size:.84rem;line-height:1.65;color:#e3d2dc;margin:0 0 11px}
+.why .why-label{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:#cbb5c9;margin:-2px 0 12px}
+.why .why-em{color:var(--gold-light);font-weight:600}
 .privacy{font:.72rem/1.5 var(--sans);color:var(--muted);margin:22px auto 12px;max-width:600px}
 
 /* ---------- Phone ---------- */
@@ -150,7 +153,7 @@ input[type=range]{width:100%;accent-color:#d8ad6b;margin:10px 0 2px;height:28px}
 <div class="wrap"><main>
   <div class="eyebrow">An invitation to be seen</div>
   <h1 class="title">Mirror, <em>mirror</em><br>on the wall.</h1>
-  <p class="intro">Once upon a time, mirrors were asked who was fairest.<br>This one asks no such thing.<br><strong>Seeing you, just as you are.</strong></p>
+  <p class="intro">Once upon a time, a mirror was asked who was fair.<br><strong>This one lets you ask whether it is fair.</strong></p>
 
   <div class="experience">
     <div class="mirror-column">
@@ -170,7 +173,7 @@ input[type=range]{width:100%;accent-color:#d8ad6b;margin:10px 0 2px;height:28px}
 
       <div class="result" role="status" aria-live="polite" aria-atomic="true">
         <div id="status" class="count">THE MIRROR AWAITS</div>
-        <div id="detail" class="sub">No judgement. No fairest of them all.</div>
+        <div id="detail" class="sub">Face detection, with a little bit of magic</div>
       </div>
       <div class="actions">
         <button id="start" class="primary" type="button">Awaken the mirror ✦</button>
@@ -205,9 +208,24 @@ input[type=range]{width:100%;accent-color:#d8ad6b;margin:10px 0 2px;height:28px}
 
         <label class="check"><input type="checkbox" id="showBox"> Show the detector's box on the mirror</label>
 
-        <h4>Why it matters</h4>
-        <p class="research-note">Face recognition systems start by detecting a face. If this first step finds nothing, nothing after it happens: no phone unlock, no ID check, no e-gate. Whoever sets the cut-off decides who gets through.</p>
-        <p class="research-note">A low cut-off lets in more false detections. A high one misses more real faces. The score is a measurement made by a model, not a measure of a person. Detection does not say who you are, and nothing on this page identifies anyone.</p>
+        <div class="why">
+          <h4>Gazing at the Gaze</h4>
+          <p class="why-label">Why it matters</p>
+          <p>You can see your face in the mirror.</p>
+          <p>But whether the technology detects it depends on something you cannot see: a threshold built into its design. The score measures a model's confidence in its detection. It does not measure the person.</p>
+          <p>This mirror doesn't identify you. It simply detects faces. And with a small adjustment, it can change whether a face is detected. A higher threshold may reduce false detections while missing more real faces.</p>
+          <p>Move the slider. Watch what happens.</p>
+          <p>Your face hasn't changed. The technology hasn't changed. Only the threshold has changed.</p>
+          <p>For some, this can mean that their face will go from being detected to being missed.</p>
+          <p class="why-em">And that matters.</p>
+          <p>Facial detection is often the first step in facial recognition and digital identity verification.</p>
+          <p>For people with facial differences, this can mean exclusion from technology and dealing with the emotional response felt when a system says your face doesn't fit what the technology was designed to see.</p>
+          <p>These are technical decisions, with human consequences.</p>
+          <p>But I see you. And I want you to see you, too.</p>
+          <p>We are here, in this mirror.</p>
+          <p class="why-em">Your face fits. You are seen.</p>
+          <p>Let's keep asking for technology that works with us, not against us.</p>
+        </div>
       </div>
     </aside>
   </div>
@@ -571,7 +589,7 @@ function stop() {
   ['metricCount', 'metricConfidence', 'metricFps'].forEach(id => $(id).textContent = '—');
   ctx.clearRect(0, 0, overlay.width, overlay.height);
   renderPanel(); drawHistory();
-  message('THE MIRROR AWAITS', 'Camera off. Nothing has been saved.');
+  message('THE MIRROR AWAITS', 'Face detection, with a little bit of magic');
 }
 
 function explainError(e) {
