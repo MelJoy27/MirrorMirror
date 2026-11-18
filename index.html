@@ -111,11 +111,18 @@ input[type=range]{width:100%;accent-color:#d8ad6b;margin:10px 0 2px;height:28px}
 #history{display:block;width:100%;height:64px;background:var(--panel-deep);margin-top:6px}
 .check{display:flex;gap:9px;align-items:center;font-size:.8rem;margin:14px 0 0;color:#dccbd6}
 .check input{width:18px;height:18px;accent-color:#d8ad6b}
-.why p{font-size:.84rem;line-height:1.65;color:#e3d2dc;margin:0 0 11px}
-.why .why-label{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:#cbb5c9;margin:-2px 0 12px}
-.why .why-em{color:var(--gold-light);font-weight:600}
 .curtain-intro{font-size:.84rem;line-height:1.65;color:#e3d2dc;margin:0 0 18px}
 .curtain-intro strong{color:var(--gold-light)}
+.actions.bar-hidden{transform:translateY(110%);visibility:hidden;transition:transform .25s ease,visibility 0s .25s}
+@media(prefers-reduced-motion:reduce){.actions.bar-hidden{transition:none}}
+.why-link{color:var(--gold-light);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+.story{max-width:640px;margin:56px auto 8px;padding:0 8px;text-align:left;scroll-margin-top:16px}
+.story-orn{text-align:center;color:#e7bc83;font-size:1.6rem;margin-bottom:6px}
+.story h2{font:400 clamp(1.7rem,3.4vw,2.3rem)/1.15 var(--serif);color:#fff0e2;margin:0;text-align:center;text-shadow:0 3px 24px #000}
+.story .story-label{font:600 .7rem var(--sans);letter-spacing:.3em;text-transform:uppercase;color:#e2b982;text-align:center;margin:10px 0 30px}
+.story p{font-size:1.06rem;line-height:1.75;color:#eadbe2;margin:0 0 16px}
+.story p.why-em{color:var(--gold-light);font-style:italic;font-size:1.16rem}
 .privacy{font:.72rem/1.5 var(--sans);color:var(--muted);margin:22px auto 12px;max-width:600px}
 
 /* ---------- Phone ---------- */
@@ -210,29 +217,35 @@ input[type=range]{width:100%;accent-color:#d8ad6b;margin:10px 0 2px;height:28px}
         <p class="research-note" style="margin-top:6px">Last few seconds. Dotted line is the cut-off. Scores move with light, angle and distance.</p>
 
         <label class="check"><input type="checkbox" id="showBox"> Show the detector's box on the mirror</label>
-
-        <div class="why">
-          <h4>Gazing at the Gaze</h4>
-          <p class="why-label">Why it matters</p>
-          <p>You can see your face in the mirror.</p>
-          <p>But whether technology detects it depends on something you can’t see: a threshold built into its design.</p>
-          <p>A face detection model assigns a confidence score to what it sees. If that score falls below the chosen threshold, a real face may go undetected.</p>
-          <p>This mirror doesn’t identify you; it only detects faces. Adjust the threshold, and you change how strict the detection is. A higher threshold can reduce false detections, but it can also mean missing real faces.</p>
-          <p>Move the slider. Watch what happens.</p>
-          <p>Your face hasn’t changed. The model hasn’t changed. Only the threshold has.</p>
-          <p>For some people, that’s the difference between being detected and being missed.</p>
-          <p class="why-em">And that matters.</p>
-          <p>Face detection can be the first step in facial recognition and digital identity verification. For people with facial differences, being missed can mean being excluded from technology, with the added hurt of a system that doesn’t detect their face as one it was built to see.</p>
-          <p>These are technical decisions with human consequences.</p>
-          <p class="why-em">Understanding how it works can help you see that the problem was never you, only how the system was taught to see.</p>
-          <p>But I see you. And I hope you can see yourself, too.</p>
-          <p>We are here, in this mirror.</p>
-          <p class="why-em">Your face fits. You are seen.</p>
-          <p>Let’s build technology that sees all of us. Then the mirror really will be the fairest of them all.</p>
-        </div>
+        <p class="research-note" style="margin-top:14px"><a class="why-link" id="whyLink" href="#why">Read why this matters ↓</a></p>
       </div>
     </aside>
   </div>
+  <section class="story" id="why" aria-labelledby="storyTitle">
+    <div class="story-orn" aria-hidden="true">✧</div>
+    <h2 id="storyTitle">Gazing at the Gaze</h2>
+    <p class="story-label">Why it matters</p>
+    <p>Mirror, mirror, on the wall…</p>
+    <p>In fairytales, mirrors have magical powers. They can see things that ordinary people cannot.</p>
+    <p>But in the real world, some people find that technology cannot see their faces at all.</p>
+    <p>Face detection is complicated. It involves different methods and technical decisions working together. And when facial technology is used to verify someone’s identity, it needs to be accurate, reliable and secure.</p>
+    <p>A confidence threshold is just one part of that process, but it’s a good place to see how choices get made.</p>
+    <p>This mirror lets you explore what happens when you change it.</p>
+    <p>Move the slider. Watch what happens.</p>
+    <p>Your face hasn’t changed. The model hasn’t changed. Only the threshold has.</p>
+    <p>Sometimes, that small adjustment makes the difference between a face being detected and being missed.</p>
+    <p>But this mirror isn’t here to solve facial recognition. It doesn’t identify you; it only detects faces.</p>
+    <p>It’s here to let you experience something.</p>
+    <p>For people with facial differences, being missed by technology can be another experience of exclusion. A reminder that the world isn’t always designed with our faces in mind.</p>
+    <p class="why-em">I know what that feels like.</p>
+    <p>So I built a mirror where we can play with the technology instead of simply being subjected to its decisions. Where we can explore how it works, question its limitations and perhaps experience something different.</p>
+    <p>The experience of being seen.</p>
+    <p>This is a fairytale mirror. A little bit of make-believe, built with real technology.</p>
+    <p>But here’s the thing about fairytales.</p>
+    <p class="why-em">Being seen shouldn’t have to be one.</p>
+    <p class="why-em">The problem was never you.</p>
+    <p>Let’s build technology that sees all of us. Then the mirror really will be the fairest of them all.</p>
+  </section>
   <p class="privacy">The camera runs only with your permission. Frames are processed in your browser, not uploaded or saved. If the detector's files are not hosted next to this page, they load from an external CDN when you start.</p>
 </main></div>
 
@@ -669,6 +682,16 @@ $('curtainToggle').addEventListener('click', () => setPanel($('researchPanel').h
 $('threshold').addEventListener('input', e => setThreshold(Number(e.target.value)));
 $('resetThreshold').addEventListener('click', () => setThreshold(DEFAULT_THRESHOLD));
 $('showBox').addEventListener('change', e => { showBox = e.target.checked; });
+$('whyLink').addEventListener('click', () => { if (isMobile()) setPanel(false); });
+// On phones, tuck the button bar away while someone is reading the story.
+if ('IntersectionObserver' in window) {
+  const bar = document.querySelector('.actions');
+  new IntersectionObserver(([entry]) => {
+    const reading = entry.isIntersecting && isMobile();
+    bar.classList.toggle('bar-hidden', reading);
+    if (reading && !$('researchPanel').hidden) setPanel(false);
+  }, { rootMargin: '0px 0px -50% 0px', threshold: 0 }).observe($('why'));
+}
 
 initMist(); startAmbient();
 setThreshold(DEFAULT_THRESHOLD);   // first result always judged at 0.50, even if the browser restored the slider
